@@ -1,8 +1,10 @@
 # Dependencies
 node_modules/
 
-# Build output
-dist/
+# Build output (TypeScript compiles to backend root, outDir: ./)
+*.js
+*.js.map
+*.d.ts
 
 # Environment
 .env
