@@ -90,7 +90,7 @@ const CreatePoll: React.FC<CreatePollProps> = ({ socket, roomCode, canCreate, is
   };
 
   const handleAddToQueue = () => {
-    if (!socket || !isActive || !formValid) return;
+    if (!socket || !formValid) return;
     socket.emit('poll:queue', {
       roomCode,
       question: question.trim(),
@@ -137,12 +137,6 @@ const CreatePoll: React.FC<CreatePollProps> = ({ socket, roomCode, canCreate, is
 
       {tab === 'create' && (
         <>
-          {isActive && (
-            <div className="tv-active-notice">
-              Poll is active — add your next question to the queue below.
-            </div>
-          )}
-
           <form onSubmit={handleSubmit} className="tv-poll-form">
             <div className="tv-divider" />
 
@@ -316,16 +310,14 @@ const CreatePoll: React.FC<CreatePollProps> = ({ socket, roomCode, canCreate, is
 
             {/* Actions */}
             <div className="tv-form-actions">
-              {isActive && (
-                <button
-                  type="button"
-                  className="tv-queue-btn"
-                  disabled={!formValid}
-                  onClick={handleAddToQueue}
-                >
-                  + Add to Queue
-                </button>
-              )}
+              <button
+                type="button"
+                className="tv-queue-btn"
+                disabled={!formValid}
+                onClick={handleAddToQueue}
+              >
+                + Add to Queue
+              </button>
               <button
                 type="submit"
                 className="tv-ask-btn"
