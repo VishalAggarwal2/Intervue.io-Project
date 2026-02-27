@@ -2,11 +2,11 @@
   "name": "live-polling-backend",
   "version": "1.0.0",
   "description": "Resilient Live Polling System - Backend",
-  "main": "dist/server.js",
+  "main": "./server.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "tsc",
-    "start": "npm run build && node dist/server.js"
+    "start": "npm run build && node build/server.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
